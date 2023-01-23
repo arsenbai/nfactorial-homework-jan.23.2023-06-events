@@ -1,0 +1,36 @@
+.solution {
+    background-color: #99bf99;
+}
+
+.animal-block {
+    border: solid 1px #99bf99;
+    background-color: #cdd9ba;
+    padding: 15px 15px;
+}
+
+.animal-title-with-button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.animal-txt-body {
+    padding-top: 5px;
+}
+
+.btn-delete {
+    text-align: center;
+    padding-top: 2px;
+    color: darkred;
+
+    background-color: #cdd9ba;
+    border: none;
+}

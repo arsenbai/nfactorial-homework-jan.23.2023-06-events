@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <h1><i>Homework:</i> 06-events</h1>
+
+    <div>
+        <h2>Exercise 1</h2>
+        <div>
+            <h3>1. Скрыть элемент по нажатию кнопки.</h3>
+            <p>Добавьте JavaScript к кнопке `button`, чтобы при нажатии элемент <xmp><div id="text">Remove me</div></xmp> исчезал.</p> 
+        </div>
+        <br>
+        <div class="solution">
+            <h3>Answer:</h3>
+            <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+            <div id="text">Remove me</div>
+        </div>
+        <br>
+    </div>
+
+
+    <div>
+        <h2>Exercise 2</h2>
+        <h3>2. Какой обработчик запустится?</h3>
+        <p>В переменной `button` находится кнопка. Изначально на ней нет обработчиков. Который из обработчиков запустится? Что будет выведено при клике после выполнения кода?</p>
+        <p>
+            <xmp>
+    button.addEventListener("click", () => alert("1"));
+    button.removeEventListener("click", () => alert("1"));
+    button.onclick = () => alert(2);
+            </xmp>
+        </p>
+        <div class="solution">
+            <h3>Answer:</h3>
+            <p>
+                Выведется 1 и 2, так как в removeEventListener не удаляет обработчик после вывода "1", а передается новая фукнция 'click'.
+            </p>
+            <input type="button" value="run exercise-2 button to assure the answer" id="exerc2">
+        </div>
+        <br>
+    </div>
+
+    <div>
+        <h2>Exercise 3</h2>
+        <h3>3. Добавить кнопку закрытия</h3>
+        <p>
+            Есть список сообщений.
+        При помощи JavaScript для каждого сообщения добавьте в верхний правый угол кнопку закрытия. 
+        Результат, который должен получится <a href="https://learn.javascript.ru/task/hide-message" target="_blank" rel="noopener noreferrer">можете посмотреть по ссылке.</a>
+        </p>
+        <div>
+            <div class="solution">
+                <h3>Solution:</h3>
+            </div>
+
+
+            <div class="animal-block" id="horse-block">
+                <div class="animal-title-with-button">
+                    <h4>
+                        Лошадь
+                    </h4>
+                    <button class="btn-delete" id="horse-x">
+                        [x]
+                    </button>
+                </div>
+                <p class="animal-txt-body">
+                    Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.
+                </p>
+            </div>
+
+            <div class="animal-block" id="donkey-block">
+                <div class="animal-title-with-button">
+                    <h4>
+                        Осёл
+                    </h4>
+                    <button class="btn-delete" id="donkey-x">
+                        [x]
+                    </button>
+                </div>
+                <p class="animal-txt-body">
+                    Домашний осёл (лат. Equus asinus asinus), или ишак, — одомашненный подвид дикого осла (Equus asinus), сыгравший важную историческую роль в развитии хозяйства и культуры человека и по-прежнему широко в хозяйстве многих развивающихся стран.
+                </p>
+            </div>
+
+
+            <div class="animal-block" id="cat-block">
+                <div class="animal-title-with-button">
+                    <h4>
+                        Кошка
+                    </h4>
+                    <button class="btn-delete" id="cat-x">
+                        [x]
+                    </button>
+                </div>
+                <p class="animal-txt-body">
+                    Кошка, или домашняя кошка (лат. Felis silvestris catus), — домашнее животное, одно из наиболее популярных(наряду с собакой) «животных-компаньонов». Являясь одиночным охотником на грызунов и других мелких животных, кошка — социальное животное, использующее для общения широкий диапазон звуковых сигналов.
+                </p>
+            </div>
+
+
+        </div>
+        <br>
+    </div>
+
+    
+
+    <script>
+
+        /* 
+        1. Скрыть элемент по нажатию кнопки
+        Добавьте JavaScript к кнопке `button`, 
+        чтобы при нажатии элемент `<div id="text">Remove me</div>` исчезал. 
+        */
+        const targetDiv = document.querySelector("#text");
+        const btn = document.querySelector("#hider");
+        btn.onclick = ()=> {
+            targetDiv.remove();
+        }
+
+        /*
+        2. Какой обработчик запустится?
+        В переменной `button` находится кнопка. Изначально на ней нет обработчиков.
+        Который из обработчиков запустится? Что будет выведено при клике после выполнения кода?
+        */
+
+        const button = document.querySelector("#exerc2");
+
+        button.addEventListener("click", () => alert("1"));
+        button.removeEventListener("click", () => alert("1"));
+        button.onclick = () => alert(2);
+
+        /*
+        3. Добавить кнопку закрытия
+        Есть список сообщений.
+        При помощи JavaScript для каждого сообщения добавьте в верхний правый угол кнопку закрытия. 
+        Результат, который должен получится можете
+        */
+
+        const btnHorse = document.querySelector("#horse-x");
+        let blockHorse = document.querySelector("#horse-block");
+        btnHorse.addEventListener("click", () => blockHorse.remove());
+
+        const btnDonkey = document.querySelector("#donkey-x");
+        let blockDonkey = document.querySelector("#donkey-block");
+        btnDonkey.addEventListener("click", () => blockDonkey.remove())
+
+        const btnCat = document.querySelector("#cat-x");
+        let blockCat = document.querySelector("#cat-block");
+        btnCat.addEventListener("click", () => blockCat.remove())
+
+
+
+    </script>
+
+</body>
+</html>
